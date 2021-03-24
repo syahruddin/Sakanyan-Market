@@ -16,6 +16,6 @@ public class Info : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      info.text = "Tangan: " + player.GetComponent<Playercontrol>().tangan + "\nSisa Ikan: " + player.GetComponent<Playercontrol>().sisaikan;
+      info.text = "Tangan: " + player.GetComponent<Playercontrol>().tangan + "\nSisa Ikan: " + player.GetComponent<Playercontrol>().sisaikan; 
     }
 }
