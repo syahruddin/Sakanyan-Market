@@ -13,8 +13,10 @@ public class Kodepelanggan : MonoBehaviour
     public float speed = 1;
     public int noKursi = -999;
     public Rigidbody2D rb;
+    public Vector3 keluar;
     void Start(){
       rb = this.GetComponent<Rigidbody2D>();
+      keluar = GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluar.position;
     }
     void Update()
     {
@@ -55,13 +57,15 @@ public class Kodepelanggan : MonoBehaviour
         case 4:
           //kalau belum selesai kurangi waktu makan, kalau sudah ganti state 5
           pelanggan.state++;
+          GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
           break;
         case 5:
           //kalau belum sampai, jalan. kalau sudah trigger pelanggan baru di order manager dan hancurkan objek
-          if(transform.position.x > -10f){
+          if(transform.position.x > keluar.x){
             rb.MovePosition(transform.position - new Vector3(1,0) * speed * Time.deltaTime);
+          }else if(transform.position.y < keluar.y){
+            rb.MovePosition(transform.position + new Vector3(0,1) * speed * Time.deltaTime);
           }else{
-            GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
             Destroy(gameObject);
           }
           break;

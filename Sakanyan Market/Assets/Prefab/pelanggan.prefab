@@ -148,6 +148,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   kursi: {x: 0, y: 0, z: 0}
   noAntri: 0
-  speed: 6
+  speed: 12
   noKursi: -999
   rb: {fileID: 0}
+  keluar: {x: 0, y: 0, z: 0}
