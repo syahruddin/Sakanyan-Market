@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interaksi : MonoBehaviour
-{
+{ 
   GameObject player;
   void Start(){
     player = GameObject.FindWithTag("Player");

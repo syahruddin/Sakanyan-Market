@@ -6,6 +6,7 @@ TagManager:
   tags:
   - manajer
   - interaksi
+  - kursi
   layers:
   - Default
   - TransparentFX
