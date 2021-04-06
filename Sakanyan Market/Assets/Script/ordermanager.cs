@@ -51,7 +51,6 @@ public class Ordermanager : MonoBehaviour
       pemesan[i] = temp;
     }
     public void pulang(int i){
-      i-=1;
       kursiterisi[i] = false;
     }
     void urusAntrian(){

@@ -53,7 +53,7 @@ public class Kodepelanggan : MonoBehaviour
 
           break;
         case 4:
-          //kalau belum selesai kurangi waktu makan, kalau sudah ganti state 4
+          //kalau belum selesai kurangi waktu makan, kalau sudah ganti state 5
           pelanggan.state++;
           break;
         case 5:
@@ -78,14 +78,14 @@ public class Kodepelanggan : MonoBehaviour
       rb.MovePosition(kursi);
     }
     void OnTriggerEnter2D(Collider2D hit){
-      if(hit.tag == "kursi"){
+      if(hit.tag == "kursi" & pelanggan.state == 2){
         Debug.Log("we hit");
         noKursi = hit.gameObject.GetComponent<Kursi>().noKursi;
         Debug.Log(noKursi);
       }
     }
     void OnTriggerExit2D(Collider2D hit){
-      if(hit.tag == "kursi"){
+      if(hit.tag == "kursi" & pelanggan.state == 2){
         noKursi = -999;
       }
     }
