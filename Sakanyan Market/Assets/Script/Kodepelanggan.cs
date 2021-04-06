@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Kodepelanggan : MonoBehaviour
 {
+    public BarSabar bar;
     public Vector3 screenPoint;
     public Vector3 offset;
     public Pelanggan pelanggan = new Pelanggan();
@@ -15,11 +16,13 @@ public class Kodepelanggan : MonoBehaviour
     public Rigidbody2D rb;
     public Vector3 keluar;
     void Start(){
+      bar.set(10000,pelanggan.kesabaran);
       rb = this.GetComponent<Rigidbody2D>();
       keluar = GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluar.position;
     }
     void Update()
     {
+      bar.set(10000f,pelanggan.kesabaran);
       //cek state
       switch(pelanggan.state)
       {
@@ -28,7 +31,7 @@ public class Kodepelanggan : MonoBehaviour
           pelanggan = new Pelanggan("garong","ikan goreng");
           break;
         case 1:
-          //jalan ke kursi.kalau belum sampai, jalan. kalau sudah ganti state 2
+          //jalan ke antre.kalau belum sampai, jalan. kalau sudah ganti state 2
           if(transform.position.y > kursi.y){
             rb.MovePosition(transform.position + new Vector3(0,-1) * speed * Time.deltaTime);
           }else{
@@ -39,18 +42,20 @@ public class Kodepelanggan : MonoBehaviour
         case 2:
           //kalau belum dapat kursi kurangi kesabaran, pergantian state ke state 3 ditangani player
           if(pelanggan.kesabaran > 0){
-            //pelanggan.kesabaran--;
+            pelanggan.kesabaran--;
           }else{
             pelanggan.state = 5;
+            GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluarAntrian(noAntri);
           }
 
           break;
         case 3:
             //kalau belum dapat makanan kurangi kesabaran, pergantian state ke state 4 ditangani player
           if(pelanggan.kesabaran > 0){
-            //pelanggan.kesabaran--;
+            pelanggan.kesabaran--;
           }else{
             pelanggan.state = 5;
+            GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluarAntrian(noAntri);
           }
 
           break;

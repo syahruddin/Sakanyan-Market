@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class LevelDesigner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static int uang = 0;
+    public static int reputasi = 3;
+    public static int targetUang = 100;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public static void bayar(int bayaran){
+      uang+=bayaran;
+    }
+    public static void ubahreputasi(int perubahan){
+      reputasi+=perubahan;
+    }
+    void update(){
+      if(uang >= targetUang){
+        win();
+      }else if(reputasi <=0){
+        lose();
+      }
+    }
+    public static void win(){
+
+    }
+    public static void lose(){
+
     }
 }
