@@ -108,12 +108,12 @@ public class Playercontrol : MonoBehaviour
         Debug.Log(nomormeja);
         Debug.Log(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state);
         //cek udah dapet pesanan belum
-        if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state == 2){
+        if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state == 3){
           Debug.Log("meja" + (nomormeja +1) + " belum dapat pesanan");
           //cek apakah pesanan benar
           if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.order == tangan){
             Debug.Log("meja" + (nomormeja +1) + " benar memesan " + tangan);
-            manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state = 3;
+            manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state = 4;
             tangan = "";
           }
         }
