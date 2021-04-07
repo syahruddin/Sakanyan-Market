@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelDesigner : MonoBehaviour
 {
@@ -32,10 +33,17 @@ public class LevelDesigner : MonoBehaviour
         lose("Reputasi Habis");
       }
     }
-    public static void win(){
-
+    void win(){
+      invokerestart();
     }
-    public static void lose(string kondisi){
-
+    void lose(string kondisi){
+      Debug.Log(kondisi);
+      invokerestart();
+    }
+    void invokerestart(){
+      Invoke("Restart",5f);
+    }
+    void Restart(){
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
