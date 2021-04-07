@@ -45,6 +45,7 @@ public class Kodepelanggan : MonoBehaviour
             pelanggan.kesabaran--;
           }else{
             pelanggan.state = 5;
+            LevelDesigner.kurangreputasi(2);
             GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluarAntrian(noAntri);
           }
 
@@ -55,12 +56,15 @@ public class Kodepelanggan : MonoBehaviour
             pelanggan.kesabaran--;
           }else{
             pelanggan.state = 5;
-            GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluarAntrian(noAntri);
+            LevelDesigner.kurangreputasi(2);
+            GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
           }
 
           break;
         case 4:
-          //kalau belum selesai kurangi waktu makan, kalau sudah ganti state 5
+          //tunggu 10 detik lalu ganti ke state 5 dan bayar makan
+          LevelDesigner.bayar(10);
+          LevelDesigner.tambahreputasi(1);
           pelanggan.state++;
           GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
           break;
@@ -122,7 +126,6 @@ public class Kodepelanggan : MonoBehaviour
 
 
 public class Pelanggan {
-    public float waktumakan = 100;
     public string name;
     public string order;
     public string warna; // merah, kuning, biru

@@ -11,20 +11,31 @@ public class LevelDesigner : MonoBehaviour
     public static void bayar(int bayaran){
       uang+=bayaran;
     }
-    public static void ubahreputasi(int perubahan){
-      reputasi+=perubahan;
+    public static void tambahreputasi(int perubahan){
+      for(int i = 1; i<= perubahan;i++){
+        if(reputasi < 5){
+          reputasi++;
+        }
+      }
+    }
+    public static void kurangreputasi(int perubahan){
+      for(int i = 1; i<= perubahan;i++){
+        if(reputasi > 0){
+          reputasi--;
+        }
+      }
     }
     void update(){
       if(uang >= targetUang){
         win();
       }else if(reputasi <=0){
-        lose();
+        lose("Reputasi Habis");
       }
     }
     public static void win(){
 
     }
-    public static void lose(){
+    public static void lose(string kondisi){
 
     }
 }
