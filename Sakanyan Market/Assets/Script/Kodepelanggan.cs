@@ -15,6 +15,7 @@ public class Kodepelanggan : MonoBehaviour
     public int noKursi = -999;
     public Rigidbody2D rb;
     public Vector3 keluar;
+    int waktumakan = 1000;
     void Start(){
       bar.set(10000,pelanggan.kesabaran);
       rb = this.GetComponent<Rigidbody2D>();
@@ -63,10 +64,14 @@ public class Kodepelanggan : MonoBehaviour
           break;
         case 4:
           //tunggu 10 detik lalu ganti ke state 5 dan bayar makan
-          LevelDesigner.bayar(10);
-          LevelDesigner.tambahreputasi(1);
-          pelanggan.state++;
-          GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
+          if(waktumakan > 0 ){
+            waktumakan--;
+          }else{
+            LevelDesigner.bayar(10);
+            LevelDesigner.tambahreputasi(1);
+            pelanggan.state++;
+            GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
+          }
           break;
         case 5:
           //kalau belum sampai, jalan. kalau sudah trigger pelanggan baru di order manager dan hancurkan objek
@@ -136,6 +141,11 @@ public class Pelanggan {
     public Pelanggan(string name, string order){
       this.name = name;
       this.order = order;
+      this.state = 1;
+    }
+    public Pelanggan(Pelanggan copy){
+      this.name = copy.name;
+      this.order = copy.order;
       this.state = 1;
     }
     public Pelanggan(){
