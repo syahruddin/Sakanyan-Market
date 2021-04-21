@@ -13,9 +13,11 @@ public class Ordermanager : MonoBehaviour
     public bool[] antrianterisi = new bool[5] {false,false,false,false,false};
     public bool isAntrianGerak = false;
     public Transform keluar,masuk;
-
+    public LevelDesigner level;
+    public static bool pelangganHabis = false;
     void Start()
     {
+      Ordermanager.pelangganHabis = false;
       int i;
       for(i=0; i<=2; i++){
         kursi[i].GetComponent<Kursi>().noKursi = i;
@@ -28,6 +30,7 @@ public class Ordermanager : MonoBehaviour
       //cek antrian kosong
       //tiap antrian kosong summon pelanggan
       urusAntrian();
+      cekPelangganHabis();
     }
     public void keluarAntrian(int i){
       antrianterisi[i] = false;
@@ -66,7 +69,9 @@ public class Ordermanager : MonoBehaviour
       if(!antrianterisi[noAntri]){
         isAntrianGerak = true;
         if(noAntri == 4){
-          datangbaru();
+          if(level.isSisaPelanggan()){
+            datangbaru();
+          }
         }else if(antrianterisi[noAntri+1]){
           maju(noAntri+1);
         }else{
@@ -78,6 +83,7 @@ public class Ordermanager : MonoBehaviour
       var temp = Instantiate(pelanggan,masuk.position,Quaternion.identity);
       temp.GetComponent<Kodepelanggan>().kursi = antre[4].position;
       temp.GetComponent<Kodepelanggan>().noAntri = 4;
+      temp.GetComponent<Kodepelanggan>().pelanggan = new Pelanggan("a",level.pesanRandom(),LevelDesigner.intToStringWarna(level.datang()));
       antrian[4] = temp;
       antrianterisi[4] = true;
     }
@@ -89,6 +95,25 @@ public class Ordermanager : MonoBehaviour
       antrian[noAntri] = null;
       antrian[noAntri-1].GetComponent<Kodepelanggan>().pelanggan.state = 1;
       antrian[noAntri-1].GetComponent<Kodepelanggan>().noAntri = noAntri-1;
+    }
+    void cekPelangganHabis(){
+      if(kursiKosong() && antriankosong()&& level.isSisaPelanggan()){
+        Ordermanager.pelangganHabis = true;
+      }
+    }
+    bool kursiKosong(){
+      bool temp = true;
+      for(int i = 0; i < kursiterisi.Length;i++){
+        temp = temp && (!kursiterisi[i]);
+      }
+      return temp;
+    }
+    bool antriankosong(){
+      bool temp = true;
+      for(int i = 0; i < antrianterisi.Length;i++){
+        temp = temp && (!antrianterisi[i]);
+      }
+      return temp;
     }
 
 }

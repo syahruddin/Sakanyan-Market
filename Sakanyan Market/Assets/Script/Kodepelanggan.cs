@@ -143,6 +143,12 @@ public class Pelanggan {
       this.order = order;
       this.state = 1;
     }
+    public Pelanggan(string name, string order, string warna){
+      this.name = name;
+      this.order = order;
+      this.state = 1;
+      this.warna = warna;
+    }
     public Pelanggan(Pelanggan copy){
       this.name = copy.name;
       this.order = copy.order;

@@ -260,6 +260,7 @@ MonoBehaviour:
   isAntrianGerak: 0
   keluar: {fileID: 290189128}
   masuk: {fileID: 8891561}
+  level: {fileID: 1345591333}
 --- !u!4 &74974557
 Transform:
   m_ObjectHideFlags: 0
@@ -1858,6 +1859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce111e7fc693b0949806d0fb2c154d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumlahMerah: 5
+  jumlahKuning: 5
+  jumlahBiru: 5
 --- !u!4 &1345591334
 Transform:
   m_ObjectHideFlags: 0

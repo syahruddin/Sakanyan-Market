@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BarSabar : MonoBehaviour
 {
     public Slider Slider;
+    public Text text;
     public Color low,high;
     public Vector3 offset;
     // Start is called before the first frame update
@@ -20,5 +21,6 @@ public class BarSabar : MonoBehaviour
     void Update()
     {
       Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
+      text.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset + new Vector3(0,.3f,0));
     }
 }
