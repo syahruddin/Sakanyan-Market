@@ -7,10 +7,13 @@ public class Playercontrol : MonoBehaviour
     public Rigidbody2D rb;
     public float speed = 1;
     public string hadap = "kiri";
+
     public Transform tunjuk;
     public string tangan = "";
     public string interact = "";
     public int sisaikan;
+    public bool isgerak = false;
+    public Animator anim;
     GameObject manajer;
     // Start is called before the first frame update
     void Start()
@@ -26,14 +29,15 @@ public class Playercontrol : MonoBehaviour
         gerak();
         ubahhadap();
         interaksi();
+        animasi();
     }
     void ubahhadap(){
       switch(hadap){
         case "kiri":
-          tunjuk.transform.position = new Vector3(transform.position.x-0.45f,transform.position.y,0f);
+          tunjuk.transform.position = new Vector3(transform.position.x-0.8f,transform.position.y-0.6f,0f);
           break;
         case "kanan":
-          tunjuk.transform.position = new Vector3(transform.position.x+0.45f,transform.position.y,0f);
+          tunjuk.transform.position = new Vector3(transform.position.x+0.8f,transform.position.y-0.6f,0f);
           break;
         case "atas":
           tunjuk.transform.position = new Vector3(transform.position.x,transform.position.y+0.45f,0f);
@@ -44,20 +48,25 @@ public class Playercontrol : MonoBehaviour
       }
     }
     void gerak(){
+      isgerak = false;
       if (Input.GetKey(KeyCode.W)) {
         rb.MovePosition(transform.position + new Vector3(0,1) * speed * Time.deltaTime);
         hadap = "atas";
+        isgerak = true;
       }else if (Input.GetKey(KeyCode.S)) {
         rb.MovePosition(transform.position + new Vector3(0,-1) * speed * Time.deltaTime);
         hadap = "bawah";
+        isgerak = true;
       }
 
       if (Input.GetKey(KeyCode.A)) {
         rb.MovePosition(transform.position + new Vector3(-1,0) * speed * Time.deltaTime);
         hadap = "kiri";
+        isgerak = true;
       }else if (Input.GetKey(KeyCode.D)) {
         rb.MovePosition(transform.position + new Vector3(1,0) * speed * Time.deltaTime);
         hadap = "kanan";
+        isgerak = true;
       }
     }
     void interaksi(){
@@ -97,6 +106,11 @@ public class Playercontrol : MonoBehaviour
               kasihpesanan(3);
             }
             break;
+          case "meja 4":
+            if(tangan!=""){
+              kasihpesanan(4);
+            }
+            break;
         }
       }
     }
@@ -116,6 +130,39 @@ public class Playercontrol : MonoBehaviour
             manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state = 4;
             tangan = "";
           }
+        }
+      }
+    }
+    void animasi(){
+      if(isgerak){
+        switch(hadap){
+          case "kiri":
+            anim.Play("Base Layer.mc_walk_left");
+            break;
+          case "kanan":
+            anim.Play("Base Layer.mc_walk_right");
+            break;
+          case "atas":
+            anim.Play("Base Layer.mc_walk_up");
+            break;
+          case "bawah":
+            anim.Play("Base Layer.mc_walk_down");
+            break;
+        }
+      }else{
+        switch(hadap){
+          case "kiri":
+            anim.Play("Base Layer.mc_idle_left");
+            break;
+          case "kanan":
+            anim.Play("Base Layer.mc_idle_right");
+            break;
+          case "atas":
+            anim.Play("Base Layer.mc_idle_up");
+            break;
+          case "bawah":
+            anim.Play("Base Layer.mc_idle_down");
+            break;
         }
       }
     }

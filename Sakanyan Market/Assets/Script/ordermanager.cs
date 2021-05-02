@@ -8,9 +8,9 @@ public class Ordermanager : MonoBehaviour
     public GameObject[] kursi = new GameObject[3];
     public bool[] kursiterisi = new bool[3] {false,false,false};
     public GameObject[] pemesan = new GameObject[3];
-    public Transform[] antre = new Transform[5];
-    public GameObject[] antrian = new GameObject[5];
-    public bool[] antrianterisi = new bool[5] {false,false,false,false,false};
+    public Transform[] antre = new Transform[3];
+    public GameObject[] antrian = new GameObject[3];
+    public bool[] antrianterisi = new bool[3] {false,false,false};
     public bool isAntrianGerak = false;
     public Transform keluar,masuk;
     public LevelDesigner level;
@@ -59,7 +59,7 @@ public class Ordermanager : MonoBehaviour
     void urusAntrian(){
       if(!isAntrianGerak){
         int i = 0;
-        while(i <=4 & !isAntrianGerak){
+        while(i <=2 & !isAntrianGerak){
           uruskosong(i);
           i++;
         }
@@ -68,7 +68,7 @@ public class Ordermanager : MonoBehaviour
     void uruskosong(int noAntri){
       if(!antrianterisi[noAntri]){
         isAntrianGerak = true;
-        if(noAntri == 4){
+        if(noAntri == 2){
           if(level.isSisaPelanggan()){
             datangbaru();
           }
@@ -81,11 +81,12 @@ public class Ordermanager : MonoBehaviour
     }
     void datangbaru(){
       var temp = Instantiate(pelanggan,masuk.position,Quaternion.identity);
-      temp.GetComponent<Kodepelanggan>().kursi = antre[4].position;
-      temp.GetComponent<Kodepelanggan>().noAntri = 4;
+      temp.GetComponent<Kodepelanggan>().kursi = antre[2].position;
+      temp.GetComponent<Kodepelanggan>().noAntri = 2;
       temp.GetComponent<Kodepelanggan>().pelanggan = new Pelanggan("a",level.pesanRandom(),LevelDesigner.intToStringWarna(level.datang()));
-      antrian[4] = temp;
-      antrianterisi[4] = true;
+      temp.GetComponent<Kodepelanggan>().pilihSkin();
+      antrian[2] = temp;
+      antrianterisi[2] = true;
     }
     void maju(int noAntri){
       antrianterisi[noAntri] = false;

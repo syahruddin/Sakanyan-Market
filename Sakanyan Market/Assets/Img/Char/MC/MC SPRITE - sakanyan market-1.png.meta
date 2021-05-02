@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: 05abcb4556756f34f8ebad9756046562
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4494142869792710818
+    second: MC SPRITE - sakanyan market-1_0
+  - first:
+      213: -1415121458598416005
+    second: MC SPRITE - sakanyan market-1_1
+  - first:
+      213: 6049919865900729296
+    second: MC SPRITE - sakanyan market-1_2
+  - first:
+      213: -6244123384564879447
+    second: MC SPRITE - sakanyan market-1_3
+  - first:
+      213: 2296549377629408030
+    second: MC SPRITE - sakanyan market-1_4
+  - first:
+      213: 6939843861952903282
+    second: MC SPRITE - sakanyan market-1_5
+  - first:
+      213: 2982675155737095450
+    second: MC SPRITE - sakanyan market-1_6
+  - first:
+      213: -7267067994314566673
+    second: MC SPRITE - sakanyan market-1_7
+  - first:
+      213: 879940172340440972
+    second: MC SPRITE - sakanyan market-1_8
+  - first:
+      213: -3567900612950618712
+    second: MC SPRITE - sakanyan market-1_9
+  - first:
+      213: 3166245244992630922
+    second: MC SPRITE - sakanyan market-1_10
+  - first:
+      213: 3650492128486619367
+    second: MC SPRITE - sakanyan market-1_11
+  - first:
+      213: -947702611665423764
+    second: MC SPRITE - sakanyan market-1_0
+  - first:
+      213: 8238846984993790871
+    second: MC SPRITE - sakanyan market-1_1
+  - first:
+      213: 8663308390167120045
+    second: MC SPRITE - sakanyan market-1_2
+  - first:
+      213: 4812433491205927617
+    second: MC SPRITE - sakanyan market-1_3
+  - first:
+      213: -5334141673291665175
+    second: MC SPRITE - sakanyan market-1_4
+  - first:
+      213: -6955116163541373000
+    second: MC SPRITE - sakanyan market-1_5
+  - first:
+      213: 354757830386940324
+    second: MC SPRITE - sakanyan market-1_6
+  - first:
+      213: -2118271156150750638
+    second: MC SPRITE - sakanyan market-1_7
+  - first:
+      213: -4603384138108458141
+    second: MC SPRITE - sakanyan market-1_8
+  - first:
+      213: -7545460551592601234
+    second: MC SPRITE - sakanyan market-1_9
+  - first:
+      213: -1957799748861100107
+    second: MC SPRITE - sakanyan market-1_10
+  - first:
+      213: -8191020598161348702
+    second: MC SPRITE - sakanyan market-1_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_0
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1312
+        width: 184
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62f8feee7519d2f0800000000000000
+      internalID: -947702611665423764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_1
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 1293
+        width: 184
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b5a5b7ea3465270800000000000000
+      internalID: 8238846984993790871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_2
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 1311
+        width: 185
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da88297a4114a3870800000000000000
+      internalID: 8663308390167120045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_3
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 896
+        width: 185
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2b58c43c239c240800000000000000
+      internalID: 4812433491205927617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_4
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 876
+        width: 185
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0b7ddd86259f5b0800000000000000
+      internalID: -5334141673291665175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_5
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 894
+        width: 185
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bfe984f2b67a7f90800000000000000
+      internalID: -6955116163541373000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_6
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 460
+        width: 183
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9708dfd5a5ce400800000000000000
+      internalID: 354757830386940324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_7
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 461
+        width: 183
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252bda74b936a92e0800000000000000
+      internalID: -2118271156150750638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_8
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 460
+        width: 184
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ba063248e7d10c0800000000000000
+      internalID: -4603384138108458141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_9
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 44
+        width: 183
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69999b1b93294790800000000000000
+      internalID: -7545460551592601234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_10
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 44
+        width: 183
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bff8c3508f74d4e0800000000000000
+      internalID: -1957799748861100107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SPRITE - sakanyan market-1_11
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 44
+        width: 184
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a76fa2f926a35e80800000000000000
+      internalID: -8191020598161348702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

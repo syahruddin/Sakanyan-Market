@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interaksi : MonoBehaviour
-{ 
+{
   GameObject player;
   void Start(){
     player = GameObject.FindWithTag("Player");
   }
-  void OnCollisionEnter2D(Collision2D hit){
-    if(hit.collider.tag == "interaksi"){
-      player.GetComponent<Playercontrol>().interact = hit.collider.name;
+  void OnTriggerEnter2D(Collider2D hit){
+    if(hit.tag == "interaksi"){
+      player.GetComponent<Playercontrol>().interact = hit.name;
       Debug.Log("we hit");
     }
   }
-  void OnCollisionExit2D(Collision2D hit){
-    if(hit.collider.tag == "interaksi"){
+  void OnTriggerExit2D(Collider2D hit){
+    if(hit.tag == "interaksi"){
       player.GetComponent<Playercontrol>().interact = "";
     }
   }

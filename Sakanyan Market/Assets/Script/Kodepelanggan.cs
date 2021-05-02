@@ -9,6 +9,8 @@ public class Kodepelanggan : MonoBehaviour
     public Vector3 offset;
     public Pelanggan pelanggan = new Pelanggan();
     public Vector3 kursi;
+    public RuntimeAnimatorController mina,nino,newton;
+    public Animator skin;
     bool ondrag = false;
     public int noAntri;
     public float speed = 1;
@@ -35,9 +37,11 @@ public class Kodepelanggan : MonoBehaviour
           //jalan ke antre.kalau belum sampai, jalan. kalau sudah ganti state 2
           if(transform.position.y > kursi.y){
             rb.MovePosition(transform.position + new Vector3(0,-1) * speed * Time.deltaTime);
+            skin.Play("Base Layer.walk_down");
           }else{
             pelanggan.state++;
             GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().isAntrianGerak = false;
+            skin.Play("Base Layer.down");
           }
           break;
         case 2:
@@ -52,6 +56,7 @@ public class Kodepelanggan : MonoBehaviour
 
           break;
         case 3:
+          skin.Play("Base Layer.right");
             //kalau belum dapat makanan kurangi kesabaran, pergantian state ke state 4 ditangani player
           if(pelanggan.kesabaran > 0){
             pelanggan.kesabaran--;
@@ -76,8 +81,10 @@ public class Kodepelanggan : MonoBehaviour
         case 5:
           //kalau belum sampai, jalan. kalau sudah trigger pelanggan baru di order manager dan hancurkan objek
           if(transform.position.x > keluar.x){
+            skin.Play("Base Layer.left");
             rb.MovePosition(transform.position - new Vector3(1,0) * speed * Time.deltaTime);
           }else if(transform.position.y < keluar.y){
+            skin.Play("Base Layer.walk_up");
             rb.MovePosition(transform.position + new Vector3(0,1) * speed * Time.deltaTime);
           }else{
             Destroy(gameObject);
@@ -126,6 +133,20 @@ public class Kodepelanggan : MonoBehaviour
     void OnMouseUpAsButton(){
       ondrag = false;
       dapatkursi();
+    }
+    public void pilihSkin(){
+      switch(pelanggan.warna){
+        case "Merah":
+          skin.runtimeAnimatorController = mina;
+          break;
+        case "Kuning":
+          skin.runtimeAnimatorController = nino;
+          break;
+        case "Biru":
+          skin.runtimeAnimatorController = newton;
+          break;
+      }
+      skin.Play("Base Layer.down");
     }
 }
 
