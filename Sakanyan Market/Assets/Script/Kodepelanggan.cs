@@ -92,7 +92,7 @@ public class Kodepelanggan : MonoBehaviour
           break;
       }
     }
-    void dapatkursi(){
+    public void dapatkursi(){
       if(noKursi != -999){
         if(!GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().kursiterisi[noKursi]){
           pelanggan.state = 3;

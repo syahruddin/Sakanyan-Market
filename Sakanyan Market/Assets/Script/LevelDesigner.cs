@@ -16,7 +16,7 @@ public class LevelDesigner : MonoBehaviour
     }
     public static void tambahreputasi(int perubahan){
       for(int i = 1; i<= perubahan;i++){
-        if(reputasi < 5){
+        if(reputasi < 10){
           reputasi++;
         }
       }
