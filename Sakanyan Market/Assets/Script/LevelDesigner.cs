@@ -7,6 +7,9 @@ public class LevelDesigner : MonoBehaviour
 {
     public static int uang = 0;
     public static int reputasi = 3;
+    public static int sisaIkanKuning = 10;
+    public static int sisaIkanMerah = 10;
+    public static int sisaIkanBiru = 10;
     public static int targetUang = 100;
     public int[] poolPelanggan = new int[3] {5,5,5}; //merah kuning biru
     public string[] menu = new string[2] {"ikan goreng","ikan potong"};
@@ -16,7 +19,7 @@ public class LevelDesigner : MonoBehaviour
     }
     public static void tambahreputasi(int perubahan){
       for(int i = 1; i<= perubahan;i++){
-        if(reputasi < 10){
+        if(reputasi < 5){
           reputasi++;
         }
       }

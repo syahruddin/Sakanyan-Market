@@ -9,18 +9,17 @@ public class Playercontrol : MonoBehaviour
     public string hadap = "kiri";
 
     public Transform tunjuk;
-    public string tangan = "";
+    public Barang tangan;
     public string interact = "";
-    public int sisaikan;
     public bool isgerak = false;
     public Animator anim;
     GameObject manajer;
     // Start is called before the first frame update
     void Start()
     {
-      sisaikan = 30;
       rb = this.GetComponent<Rigidbody2D>();
       manajer = GameObject.FindWithTag("manajer");
+      tangan = new Barang();
     }
 
     // Update is called once per frame
@@ -73,41 +72,61 @@ public class Playercontrol : MonoBehaviour
       if(Input.GetKeyDown("space")){
         switch(interact){
           case "potong":
-            if(tangan=="ikan"){
-              tangan = "ikan potong";
+            if(tangan.nama =="ikan"){
+              tangan.nama = "ikan potong";
             }
             break;
           case "goreng":
-            if(tangan == "ikan"){
-              tangan ="ikan goreng";
+            if(tangan.nama == "ikan"){
+              tangan.nama ="ikan goreng";
             }
             break;
-          case "box ikan":
-            if(tangan == "" && sisaikan > 0){
-              tangan ="ikan";
-              sisaikan--;
+          case "rebus":
+            if(tangan.nama =="ikan"){
+              tangan.nama = "ikan rebus";
+            }
+            break;
+          case "box ikan kuning":
+            if(tangan.isKosong() && LevelDesigner.sisaIkanKuning > 0){
+              tangan.nama ="ikan";
+              tangan.warna = "kuning";
+              LevelDesigner.sisaIkanKuning--;
+            }
+            break;
+          case "box ikan merah":
+            if(tangan.isKosong() && LevelDesigner.sisaIkanMerah > 0){
+              tangan.nama ="ikan";
+              tangan.warna = "merah";
+              LevelDesigner.sisaIkanMerah--;
+            }
+            break;
+          case "box ikan biru":
+            if(tangan.isKosong() && LevelDesigner.sisaIkanBiru > 0){
+              tangan.nama ="ikan";
+              tangan.warna = "biru";
+              LevelDesigner.sisaIkanBiru--;
             }
             break;
           case "sampah":
-            tangan = "";
+            tangan.nama = "";
             break;
           case "meja 1":
-            if(tangan!=""){
+            if(tangan.nama !=""){
               kasihpesanan(1);
             }
             break;
           case "meja 2":
-            if(tangan!=""){
+            if(tangan.nama !=""){
               kasihpesanan(2);
             }
             break;
           case "meja 3":
-            if(tangan!=""){
+            if(tangan.nama !=""){
               kasihpesanan(3);
             }
             break;
           case "meja 4":
-            if(tangan!=""){
+            if(tangan.nama !=""){
               kasihpesanan(4);
             }
             break;
@@ -125,10 +144,10 @@ public class Playercontrol : MonoBehaviour
         if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state == 3){
           Debug.Log("meja" + (nomormeja +1) + " belum dapat pesanan");
           //cek apakah pesanan benar
-          if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.order == tangan){
-            Debug.Log("meja" + (nomormeja +1) + " benar memesan " + tangan);
+          if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.order == tangan.nama){
+            Debug.Log("meja" + (nomormeja +1) + " benar memesan " + tangan.nama);
             manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state = 4;
-            tangan = "";
+            tangan.nama = "";
           }
         }
       }
@@ -166,4 +185,20 @@ public class Playercontrol : MonoBehaviour
         }
       }
     }
+}
+public class Barang{
+  public string warna = "";
+  public string nama = "";
+  public Barang(){
+  }
+  public Barang(string nama, string warna){
+    this.nama = nama;
+    this.warna = warna;
+  }
+  public string infoBarang(){
+    return nama + " " + warna;
+  }
+  public bool isKosong(){
+    return nama == "";
+  }
 }

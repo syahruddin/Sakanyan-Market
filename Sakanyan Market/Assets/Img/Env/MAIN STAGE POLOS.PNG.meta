@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 6468512926006706278
     second: MAIN STAGE POLOS_2
+  - first:
+      213: 2016077803976470405
+    second: MAIN STAGE POLOS_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -187,7 +190,7 @@ TextureImporter:
         width: 111
         height: 125
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,6 +198,27 @@ TextureImporter:
       bones: []
       spriteID: 66007ab0c36c4c950800000000000000
       internalID: 6468512926006706278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAIN STAGE POLOS_3
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1802
+        width: 591
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f2191c41c8afb10800000000000000
+      internalID: 2016077803976470405
       vertices: []
       indices: 
       edges: []

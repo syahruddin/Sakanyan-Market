@@ -50,7 +50,7 @@ public class Kodepelanggan : MonoBehaviour
             pelanggan.kesabaran--;
           }else{
             pelanggan.state = 5;
-            LevelDesigner.kurangreputasi(2);
+            LevelDesigner.kurangreputasi(1);
             GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().keluarAntrian(noAntri);
           }
 
@@ -62,7 +62,7 @@ public class Kodepelanggan : MonoBehaviour
             pelanggan.kesabaran--;
           }else{
             pelanggan.state = 5;
-            LevelDesigner.kurangreputasi(2);
+            LevelDesigner.kurangreputasi(1);
             GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
           }
 
