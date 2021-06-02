@@ -8,6 +8,8 @@ public class infoPesanan : MonoBehaviour
     public Kodepelanggan pelanggan;
     public Text info;
     public Vector3 offset;
+    public Sprite goreng,potong,rebus;
+    public Image pesanan,bg;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,22 @@ public class infoPesanan : MonoBehaviour
     void Update()
     {
       if(pelanggan.pelanggan.state == 3){
-        info.text = pelanggan.pelanggan.order;
+        pesanan.color = new Color32(255,255,255,255);
+        bg.color = new Color32(255,255,255,255);
+        switch(pelanggan.pelanggan.order){
+          case "ikan goreng":
+            pesanan.sprite = goreng;
+            break;
+          case "ikan potong":
+            pesanan.sprite = potong;
+            break;
+          case "ikan rebus":
+            pesanan.sprite = rebus;
+            break;
+        }
       }else{
-        info.text = "";
+        pesanan.color = new Color32(255,255,255,0);
+        bg.color = new Color32(255,255,255,0);
       }
     }
 }

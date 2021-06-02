@@ -25,7 +25,7 @@ public class Ordermanager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
       //cek antrian kosong
       //tiap antrian kosong summon pelanggan

@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelDesigner : MonoBehaviour
 {
+    public GameObject loseScreen, winpage;
     public static int uang = 0;
     public static int reputasi = 3;
     public static int sisaIkanKuning = 10;
     public static int sisaIkanMerah = 10;
     public static int sisaIkanBiru = 10;
     public static int targetUang = 100;
+    public static string levelname = "";
     public int[] poolPelanggan = new int[3] {5,5,5}; //merah kuning biru
     public string[] menu = new string[2] {"ikan goreng","ikan potong"};
 
@@ -32,11 +34,21 @@ public class LevelDesigner : MonoBehaviour
       }
     }
     void Start(){
+      loseScreen.SetActive(false);
+      winpage.SetActive(false);
       LevelDesigner.uang = 0;
       LevelDesigner.reputasi = 3;
+      sisaIkanBiru = CurrentLevel.stock[0];
+      sisaIkanMerah = CurrentLevel.stock[1];
+      sisaIkanKuning = CurrentLevel.stock[2];
+      poolPelanggan[0] = CurrentLevel.level.jumlahMerah;
+      poolPelanggan[1] = CurrentLevel.level.jumlahKuning;
+      poolPelanggan[2] = CurrentLevel.level.jumlahBiru;
+      targetUang = CurrentLevel.level.target;
+      levelname = CurrentLevel.levelname;
     }
     void Update(){
-      if(uang >= targetUang || Ordermanager.pelangganHabis) {
+      if(uang >= targetUang ||Ordermanager.pelangganHabis) {
         win();
       }else if(reputasi <=0){
         lose("Reputasi Habis");
@@ -46,16 +58,17 @@ public class LevelDesigner : MonoBehaviour
       return (poolPelanggan[0] + poolPelanggan[1] + poolPelanggan[2] > 0);
     }
     void win(){
-      invokerestart();
+      winpage.SetActive(true);
+      UI_Controller.isPaused = true;
+      Time.timeScale = 0;
     }
     void lose(string kondisi){
       Debug.Log(kondisi);
-      invokerestart();
+      loseScreen.SetActive(true);
+      UI_Controller.isPaused = true;
+      Time.timeScale = 0;
     }
-    void invokerestart(){
-      Invoke("Restart",5f);
-    }
-    void Restart(){
+    public void Restart(){
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public int datang(){ //asumsi cuman dipanggil setelah cek isSisapelanggan()
@@ -122,5 +135,8 @@ public class LevelDesigner : MonoBehaviour
     public string pesanRandom(){
       int temp = Random.Range(0,menu.Length);
       return menu[temp];
+    }
+    public void winScreen(){
+      SceneManager.LoadScene("AfterGame");
     }
 }

@@ -48,28 +48,30 @@ public class Playercontrol : MonoBehaviour
     }
     void gerak(){
       isgerak = false;
-      if (Input.GetKey(KeyCode.W)) {
-        rb.MovePosition(transform.position + new Vector3(0,1) * speed * Time.deltaTime);
-        hadap = "atas";
-        isgerak = true;
-      }else if (Input.GetKey(KeyCode.S)) {
-        rb.MovePosition(transform.position + new Vector3(0,-1) * speed * Time.deltaTime);
-        hadap = "bawah";
-        isgerak = true;
-      }
+      if(!UI_Controller.isPaused){
+        if (Input.GetKey(KeyCode.W)) {
+          rb.MovePosition(transform.position + new Vector3(0,1) * speed * Time.deltaTime);
+          hadap = "atas";
+          isgerak = true;
+        }else if (Input.GetKey(KeyCode.S)) {
+          rb.MovePosition(transform.position + new Vector3(0,-1) * speed * Time.deltaTime);
+          hadap = "bawah";
+          isgerak = true;
+        }
 
-      if (Input.GetKey(KeyCode.A)) {
-        rb.MovePosition(transform.position + new Vector3(-1,0) * speed * Time.deltaTime);
-        hadap = "kiri";
-        isgerak = true;
-      }else if (Input.GetKey(KeyCode.D)) {
-        rb.MovePosition(transform.position + new Vector3(1,0) * speed * Time.deltaTime);
-        hadap = "kanan";
-        isgerak = true;
+        if (Input.GetKey(KeyCode.A)) {
+          rb.MovePosition(transform.position + new Vector3(-1,0) * speed * Time.deltaTime);
+          hadap = "kiri";
+          isgerak = true;
+        }else if (Input.GetKey(KeyCode.D)) {
+          rb.MovePosition(transform.position + new Vector3(1,0) * speed * Time.deltaTime);
+          hadap = "kanan";
+          isgerak = true;
+        }
       }
     }
     void interaksi(){
-      if(Input.GetKeyDown("space")){
+      if(Input.GetKeyDown("space") & !UI_Controller.isPaused){
         switch(interact){
           case "potong":
             if(tangan.nama =="ikan"){
@@ -77,14 +79,16 @@ public class Playercontrol : MonoBehaviour
             }
             break;
           case "goreng":
-            if(tangan.nama == "ikan"){
-              tangan.nama ="ikan goreng";
-            }
+            tangan = GameObject.Find("goreng").GetComponent<Masak>().interact(tangan);
             break;
           case "rebus":
-            if(tangan.nama =="ikan"){
-              tangan.nama = "ikan rebus";
-            }
+            tangan = GameObject.Find("rebus").GetComponent<Masak>().interact(tangan);
+            break;
+          case "hold1":
+            tangan = GameObject.Find("hold1").GetComponent<Hold>().interact(tangan);
+            break;
+          case "hold2":
+            tangan = GameObject.Find("hold2").GetComponent<Hold>().interact(tangan);
             break;
           case "box ikan kuning":
             if(tangan.isKosong() && LevelDesigner.sisaIkanKuning > 0){
@@ -147,6 +151,7 @@ public class Playercontrol : MonoBehaviour
           if(manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.order == tangan.nama){
             Debug.Log("meja" + (nomormeja +1) + " benar memesan " + tangan.nama);
             manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().pelanggan.state = 4;
+            manajer.GetComponent<Ordermanager>().pemesan[nomormeja].GetComponent<Kodepelanggan>().warnamakanan = tangan.warna;
             tangan.nama = "";
           }
         }

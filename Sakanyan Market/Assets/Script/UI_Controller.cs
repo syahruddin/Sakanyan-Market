@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class UI_Controller : MonoBehaviour
     public Image tangan,warnatangan;
     public Sprite goreng,sup,potong,merah,kuning,biru;
     public Playercontrol player;
+    public GameObject menu;
+    public static bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
     {
+      Time.timeScale = 1;
+      isPaused = false;
       goal.text = "$" + LevelDesigner.targetUang;
+      level.text = "Level " + CurrentLevel.levelname;
     }
 
     // Update is called once per frame
@@ -25,11 +31,23 @@ public class UI_Controller : MonoBehaviour
       urusTangan();
       urusUang();
       urusStok();
+      menu.SetActive(isPaused);
     }
     void urusReputasi(){
       for(int i = 1; i <= 5; i ++){
         bintang[i-1].SetActive(i <= LevelDesigner.reputasi);
       }
+    }
+    public void pause(){
+      isPaused = true;
+      Time.timeScale = 0;
+    }
+    public void resume(){
+      isPaused = false;
+      Time.timeScale = 1;
+    }
+    public void mainmenu(){
+      SceneManager.LoadScene("MainMenu");
     }
     void urusTangan(){
       if(player.tangan.isKosong()){

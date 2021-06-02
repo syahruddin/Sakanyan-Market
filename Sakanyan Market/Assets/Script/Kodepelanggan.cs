@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Kodepelanggan : MonoBehaviour
 {
+    public SpriteScript sprite;
     public BarSabar bar;
     public Vector3 screenPoint;
+    public SpriteRenderer render;
     public Vector3 offset;
     public Pelanggan pelanggan = new Pelanggan();
     public Vector3 kursi;
@@ -17,7 +19,8 @@ public class Kodepelanggan : MonoBehaviour
     public int noKursi = -999;
     public Rigidbody2D rb;
     public Vector3 keluar;
-    int waktumakan = 1000;
+    public string warnamakanan = "";
+    int waktumakan = 100;
     void Start(){
       bar.set(10000,pelanggan.kesabaran);
       rb = this.GetComponent<Rigidbody2D>();
@@ -25,7 +28,7 @@ public class Kodepelanggan : MonoBehaviour
     }
     void Update()
     {
-      bar.set(10000f,pelanggan.kesabaran);
+      bar.set(5000f,pelanggan.kesabaran);
       //cek state
       switch(pelanggan.state)
       {
@@ -34,6 +37,7 @@ public class Kodepelanggan : MonoBehaviour
           pelanggan = new Pelanggan("garong","ikan goreng");
           break;
         case 1:
+          render.color = new Color32(225,80,80,0);
           //jalan ke antre.kalau belum sampai, jalan. kalau sudah ganti state 2
           if(transform.position.y > kursi.y){
             rb.MovePosition(transform.position + new Vector3(0,-1) * speed * Time.deltaTime);
@@ -45,9 +49,12 @@ public class Kodepelanggan : MonoBehaviour
           }
           break;
         case 2:
+          render.color = new Color32(225,80,80,255);
           //kalau belum dapat kursi kurangi kesabaran, pergantian state ke state 3 ditangani player
           if(pelanggan.kesabaran > 0){
-            pelanggan.kesabaran--;
+            if(!UI_Controller.isPaused){
+              pelanggan.kesabaran--;
+            }
           }else{
             pelanggan.state = 5;
             LevelDesigner.kurangreputasi(1);
@@ -56,10 +63,13 @@ public class Kodepelanggan : MonoBehaviour
 
           break;
         case 3:
+          render.color = new Color32(225,80,80,0);
           skin.Play("Base Layer.right");
             //kalau belum dapat makanan kurangi kesabaran, pergantian state ke state 4 ditangani player
           if(pelanggan.kesabaran > 0){
-            pelanggan.kesabaran--;
+            if(!UI_Controller.isPaused){
+              pelanggan.kesabaran--;
+            }
           }else{
             pelanggan.state = 5;
             LevelDesigner.kurangreputasi(1);
@@ -70,10 +80,17 @@ public class Kodepelanggan : MonoBehaviour
         case 4:
           //tunggu 10 detik lalu ganti ke state 5 dan bayar makan
           if(waktumakan > 0 ){
-            waktumakan--;
+            if(!UI_Controller.isPaused){
+              waktumakan--;
+            }
           }else{
-            LevelDesigner.bayar(10);
-            LevelDesigner.tambahreputasi(1);
+            if(warnamakanan.ToLower() == pelanggan.warna.ToLower()){
+              LevelDesigner.bayar(10);
+              LevelDesigner.tambahreputasi(2);
+            }else{
+              LevelDesigner.bayar(5);
+              LevelDesigner.tambahreputasi(1);
+            }
             pelanggan.state++;
             GameObject.FindWithTag("manajer").GetComponent<Ordermanager>().pulang(noKursi);
           }
@@ -116,7 +133,7 @@ public class Kodepelanggan : MonoBehaviour
     }
 
     void OnMouseDown(){
-      if(pelanggan.state == 2){
+      if(pelanggan.state == 2 & !UI_Controller.isPaused){
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         ondrag = true;
@@ -158,7 +175,7 @@ public class Pelanggan {
     public int preferensi;
     public int state = 0; //0 = kosong(cuman buat init), 1 = jalan ke kursi, 2 = nunggu pesanan, 3 = makan, 4 = jalan pulang
                           // new: 0= init , 1 = jalan ke antrian, 2 = nunggu kursi, 3 nunggu pesanan, 4 makan, 5 jalan pulang
-    public float kesabaran = 10000;
+    public float kesabaran = 5000;
     public Pelanggan(string name, string order){
       this.name = name;
       this.order = order;
